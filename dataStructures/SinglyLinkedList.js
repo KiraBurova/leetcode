@@ -141,6 +141,7 @@ class SinglyLinkedList {
         let current = this.head; // 1 
         let following = this.head; // 1
 
+        // https://medium.com/outco/reversing-a-linked-list-easy-as-1-2-3-560fbffe2088
         while (current !== null) {
             following = following.next; // 1 -> 2 -> 3  null <- 1 -> 2 -> 3
             current.next = previous; // null <- 1 -> 2 -> 3 null <- 1 <- 2 -> 3
