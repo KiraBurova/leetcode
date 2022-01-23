@@ -28,4 +28,67 @@ class Graph {
 
         delete this.adjacencyList[vertex];
     }
+    DFSRecursive(startVertex) {
+        const result = [];
+        const visitedVertices = {}
+        const adjacencyList = this.adjacencyList;
+
+        (function dfc(vertex) {
+            if (!vertex) return null;
+
+            visitedVertices[vertex] = true;
+            result.push(vertex);
+
+            adjacencyList[vertex].forEach(neighbor => {
+                if (!visitedVertices[neighbor]) return dfc(neighbor)
+            })
+
+        })(startVertex)
+
+        return result;
+    }
+    DFSIterative(startVertex) {
+        // work with last element (because stack) so work with depth
+        const stack = [startVertex];
+        const result = [];
+        const visitedVertices = {};
+        let currentVertex;
+
+        visitedVertices[startVertex] = true;
+
+        while(stack.length) {
+            currentVertex = stack.pop();
+            result.push(currentVertex);
+
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+                if (!visitedVertices[neighbor]) {
+                    visitedVertices[neighbor] = true;
+                    stack.push(neighbor);
+                }
+            });
+        }
+        return result;
+    }
+    BFS(startVertex) {
+        // work with first element (because queue, so firstly work with next level neighbors)
+        const queue = [startVertex];
+        const result = [];
+        const visitedVertices = {};
+        let currentVertex;
+        visitedVertices[startVertex] = true;
+
+        while (queue.length) {
+            currentVertex = queue.shift();
+            result.push(currentVertex);
+
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+                if (!visitedVertices[neighbor]) {
+                    visitedVertices[neighbor] = true;
+                    queue.push(neighbor);
+                }
+            })
+        }
+
+        return result;
+    }
 }
