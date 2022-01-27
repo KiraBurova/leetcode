@@ -5,7 +5,7 @@ test('returns profit 1', () => {
   expect(maxProfit([7, 1, 5, 3, 6, 4])).toStrictEqual(7);
 });
 
-test('returns profit 1', () => {
+test('returns profit 2', () => {
   expect(maxProfit([1, 2, 3, 4, 5])).toStrictEqual(4);
 });
 
