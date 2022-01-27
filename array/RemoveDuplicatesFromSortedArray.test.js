@@ -1,6 +1,6 @@
 const { expect } = require('@jest/globals');
-const removeDuplicates = require('./RemoveDuplicatesFromSortedArray');
+const RemoveDuplicatesFromSortedArray = require('./RemoveDuplicatesFromSortedArray');
 
 test('returns sum', () => {
-    expect(removeDuplicates([1, 2])).toBe(1)
-})
+  expect(RemoveDuplicatesFromSortedArray([0, 0, 1, 1, 1, 2, 2, 3, 3, 4])).toStrictEqual(5);
+});
