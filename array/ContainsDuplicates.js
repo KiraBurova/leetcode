@@ -17,6 +17,20 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-const containsDuplicate = function (nums) {};
+const containsDuplicate = function (nums) {
+  // create map to hold number -> i
+  // variable hasduplicates = true/false
+  let hasDuplicates = false;
+  let numsMap = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    if (numsMap.has(nums[i])) {
+      hasDuplicates = true;
+      return hasDuplicates;
+    } else {
+      numsMap.set(nums[i], i);
+    }
+  }
+  return hasDuplicates;
+};
 
 module.exports = containsDuplicate;

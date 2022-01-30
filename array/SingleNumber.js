@@ -18,6 +18,31 @@
  * @param {number[]} nums
  * @return {number}
  */
-const singleNumber = function (nums) {};
+const singleNumber = function (nums) {
+  // if (nums.length === 1) return nums[0];
+  // const map = new Map();
+  // for (let i = 0; i < nums.length; i++) {
+  //   const element = nums[i];
+  //   if (!map.has(element)) {
+  //     map.set(element, 1);
+  //   } else {
+  //     let count = map.get(element);
+  //     map.set(element, ++count);
+  //   }
+  // }
+  // for (const [key, value] of map.entries()) {
+  //   if (value === 1) return key;
+  // }
+  const set = new Set();
+
+  for (let num of nums) {
+    if (set.has(num)) {
+      set.delete(num);
+    } else {
+      set.add(num);
+    }
+  }
+  return [...set][0];
+};
 
 module.exports = singleNumber;
