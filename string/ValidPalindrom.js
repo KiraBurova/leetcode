@@ -24,6 +24,29 @@
  * @param {string} s
  * @return {boolean}
  */
-const isPalindrome = function (s) {};
+const isPalindrome = function (s) {
+  if (!s.length) return true;
+  // turn string lower case
+  // remove all no alphanumeric chars
+  // compare chars from left and right
+
+  s = s.toLowerCase().replace(/[^a-z0-9]/gi, '');
+
+  console.log(s);
+
+  let start = 0;
+  let end = s.length - 1;
+
+  while (start < end) {
+    if (s[start] !== s[end]) {
+      return false;
+    } else {
+      start++;
+      end--;
+    }
+  }
+
+  return true;
+};
 
 module.exports = isPalindrome;
