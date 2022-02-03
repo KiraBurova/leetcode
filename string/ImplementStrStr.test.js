@@ -9,6 +9,6 @@ test('return -1', () => {
   expect(strStr('aaaaa', 'bba')).toStrictEqual(-1);
 });
 
-test('return -1', () => {
-  expect(strStr('', '')).toStrictEqual(0);
+test('return 0', () => {
+  expect(strStr('mississippi', 'issip')).toStrictEqual(4);
 });
