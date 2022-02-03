@@ -17,6 +17,25 @@
  * @param {string} s
  * @return {number}
  */
-const firstUniqChar = function (s) {};
+const firstUniqChar = function (s) {
+  const map = new Map();
+
+  for (let i = 0; i < s.length; i++) {
+    const letter = s[i];
+
+    if (!map.has(letter)) {
+      map.set(letter, 1);
+    } else {
+      let value = map.get(letter);
+      map.set(letter, ++value);
+    }
+  }
+
+  for (const [key, value] of map.entries()) {
+    if (value === 1) return s.indexOf(key);
+  }
+
+  return -1;
+};
 
 module.exports = firstUniqChar;
