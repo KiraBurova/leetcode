@@ -1,5 +1,5 @@
 const { expect } = require('@jest/globals');
-const maxProfit = require('./BestTimetoBuyandSellStock2');
+const maxProfit = require('./BestTimeToBuyandSellStock2');
 
 test('returns profit 7', () => {
   expect(maxProfit([7, 1, 5, 3, 6, 4])).toStrictEqual(7);
